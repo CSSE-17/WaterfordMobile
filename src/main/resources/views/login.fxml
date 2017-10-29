@@ -63,7 +63,7 @@
                      </font>
                   </Label>
                   <Label layoutX="417.0" layoutY="352.0" text="Attempts left: 5" textFill="WHITE" AnchorPane.bottomAnchor="30.0" />
-                  <Button layoutX="447.0" layoutY="14.0" mnemonicParsing="false" styleClass="close-button" text="❌" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0" />
+                  <Button fx:id="btn_close" layoutX="447.0" layoutY="14.0" mnemonicParsing="false" onAction="#closeLogin" styleClass="close-button" text="❌" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0" />
                </children>
             </AnchorPane>
          </children>
