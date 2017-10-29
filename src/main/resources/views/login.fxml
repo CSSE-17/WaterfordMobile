@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="400.0" prefHeight="400.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoginController">
+<AnchorPane maxHeight="400.0" prefHeight="400.0" prefWidth="750.0" stylesheets="@../css/login.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoginController">
    <children>
       <HBox layoutX="107.0" layoutY="158.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -63,6 +63,7 @@
                      </font>
                   </Label>
                   <Label layoutX="417.0" layoutY="352.0" text="Attempts left: 5" textFill="WHITE" AnchorPane.bottomAnchor="30.0" />
+                  <Button layoutX="447.0" layoutY="14.0" mnemonicParsing="false" styleClass="close-button" text="❌" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0" />
                </children>
             </AnchorPane>
          </children>

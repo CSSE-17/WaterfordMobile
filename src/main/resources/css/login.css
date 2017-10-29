@@ -1,0 +1,7 @@
+.close-button:hover {
+    -fx-background-color: #CC0000;
+    -fx-text-fill: #FFFFFF;
+}
+.close-button:armed {
+    -fx-background-color: #B20000;
+}
