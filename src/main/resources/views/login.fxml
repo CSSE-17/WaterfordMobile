@@ -50,19 +50,19 @@
                   <VBox layoutX="27.0" layoutY="277.0" prefHeight="79.0" prefWidth="484.0" spacing="5.0" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
                      <children>
                         <Hyperlink alignment="CENTER_RIGHT" prefWidth="500.0" style="-fx-text-fill: white;" text="Forgot your password?" />
-                        <Button defaultButton="true" mnemonicParsing="false" prefHeight="25.0" prefWidth="493.0" text="GO">
+                        <Button defaultButton="true" mnemonicParsing="false" onAction="#login" prefHeight="25.0" prefWidth="493.0" text="GO">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Button>
                      </children>
                   </VBox>
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="15.0" layoutY="345.0" text="Invalid user name or password" textFill="#f54545" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
+                  <Label fx:id="msg_auth_error" alignment="CENTER" contentDisplay="CENTER" layoutX="15.0" layoutY="345.0" text="Invalid user name or password" textFill="#f54545" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
                      <font>
                         <Font name="Segoe UI" size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="417.0" layoutY="352.0" text="Attempts left: 5" textFill="WHITE" AnchorPane.bottomAnchor="30.0" />
+                  <Label fx:id="msg_attempts_left" layoutX="417.0" layoutY="352.0" text="Attempts left: 5" textFill="WHITE" AnchorPane.bottomAnchor="30.0" />
                   <Button fx:id="btn_close" layoutX="447.0" layoutY="14.0" mnemonicParsing="false" onAction="#closeLogin" styleClass="close-button" text="❌" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0" />
                </children>
             </AnchorPane>
