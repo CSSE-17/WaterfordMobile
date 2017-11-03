@@ -49,7 +49,7 @@
                   </VBox>
                   <VBox layoutX="27.0" layoutY="277.0" prefHeight="79.0" prefWidth="484.0" spacing="5.0" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
                      <children>
-                        <Hyperlink alignment="CENTER_RIGHT" prefWidth="500.0" style="-fx-text-fill: white;" text="Forgot your password?" />
+                        <Hyperlink alignment="CENTER_RIGHT" onAction="#gotoPasswordRecovery" prefWidth="500.0" style="-fx-text-fill: white;" text="Forgot your password?" />
                         <Button defaultButton="true" mnemonicParsing="false" onAction="#login" prefHeight="25.0" prefWidth="493.0" text="GO">
                            <font>
                               <Font size="18.0" />
