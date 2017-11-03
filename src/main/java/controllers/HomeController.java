@@ -45,6 +45,10 @@ public class HomeController {
         loadCenterPanel("/views/Supplier.fxml");
     }
 
+    public void loadInventoryPanel() {
+        loadCenterPanel("/views/Inventory.fxml");
+    }
+
     /**
      * Loads the FXML scene to the center of home borderpane.
      *
