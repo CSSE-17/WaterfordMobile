@@ -16,7 +16,7 @@
     <top>
         <AnchorPane prefHeight="70.0" prefWidth="750.0" styleClass="header-main" BorderPane.alignment="CENTER">
             <children>
-                <Label contentDisplay="RIGHT" layoutX="15.0" layoutY="30.0" prefWidth="211.0" text="Deema Baby Fair" textFill="AQUA" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0">
+                <Label contentDisplay="RIGHT" layoutX="15.0" layoutY="30.0" prefWidth="211.0" text="Waterford Mobile" textFill="AQUA" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0">
                     <font>
                         <Font name="Open Sans Semibold" size="24.0" />
                     </font>
