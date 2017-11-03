@@ -16,9 +16,9 @@
         </layout>
     </appender>
 
-    <logger name="main.java.controllers" level="TRACE"/>
+    <logger name="main.java.controllers" level="INFO"/>
 
-    <root level="debug">
+    <root level="info">
         <appender-ref ref="STDOUT" />
         <appender-ref ref="FILE" />
     </root>

@@ -13,6 +13,7 @@
 
         <mapping class="models.UserEntity"/>
         <mapping class="models.SupplierEntity"/>
+        <mapping class="models.EmployeeEntity"/>
 
     </session-factory>
 </hibernate-configuration>
