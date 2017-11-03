@@ -1,5 +1,6 @@
 package controllers;
 
+import dao.UserDAO;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -18,6 +19,13 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         LOG.info("Starting application.");
+
+        //TODO: remove
+//        UserDAO userDAO = new UserDAO();
+//        userDAO.setup();
+//        userDAO.create();
+//        userDAO.exit();
+
         stage = primaryStage;
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("views/login.fxml"));
         Scene loginScene = new Scene(root);
@@ -29,8 +37,5 @@ public class Main extends Application {
         stage.show();
     }
 
-
-    public static void main(String[] args) {
-        launch(args);
-    }
+    public static void main(String[] args) { launch(args); }
 }
