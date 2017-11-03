@@ -35,7 +35,7 @@ public class Configuration {
      * @return
      */
     public Properties readEmailConfig() {
-        Properties email_properties = readConfig("./src/config/email_config.properties");
+        Properties email_properties = readConfig("C:\\Users\\VTENNM1\\IdeaProjects\\WaterfordMobile\\src\\main\\resources\\config\\email_config.properties");
         return email_properties;
     }
 

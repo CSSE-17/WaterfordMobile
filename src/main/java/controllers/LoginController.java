@@ -153,4 +153,25 @@ public class LoginController {
             updateMessages();
         }
     }
+
+    /**
+     * Show password recovery wizard.
+     */
+    public void gotoPasswordRecovery() {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/views/PasswordRecovery.fxml"));
+            Scene home = new Scene(root);
+            Stage stage = new Stage();
+            stage.setScene(home);
+            stage.setResizable(false);
+            stage.show();
+
+            // close current window
+            closeLogin();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }
