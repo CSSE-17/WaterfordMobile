@@ -25,19 +25,18 @@ import javafx.collections.transformation.SortedList;
 import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.web.HTMLEditor;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import models.InvenModel;
 import models.OfferModel;
 import models.advertising;
 //import util.EmailUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import util.EmailUtil;
 import util.FormValidate;
 import util.JDBC;
 //import static sun.net.www.MimeTable.loadTable;
@@ -48,6 +47,8 @@ import util.JDBC;
  * @author dell
  */
 public class AdvertisingController implements Initializable {
+
+    static final Logger LOG = LoggerFactory.getLogger(PasswordRecoveryController.class);
 
     @FXML
     private TextField txt_offer_id;
@@ -69,7 +70,9 @@ public class AdvertisingController implements Initializable {
     private TableView table_Offer;
      @FXML
     private TextField offers_Email;
-    
+    @FXML
+    private TextArea message_Txt;
+
     
      //public static advertising selectedoffer;
 
@@ -160,6 +163,7 @@ public ObservableList<OfferModel> getAllOffers(){
 
       advertising adv = new advertising(offer_id, name, discount, description, date_effectivefrom,date_effectiveto);
       adv.addNewAdvertising(adv);
+      LOG.info(" New Offer added ");
 
     }
     loadOfferTables();
@@ -312,30 +316,38 @@ public ObservableList<OfferModel> getAllOffers(){
         
         return false;
     }
-   //   public void sendOffers(){
-//
-//        user_name = txt_user_name.getText();
-//        String emailAddress = txt_email.getText();
-//
-//        EmailUtil emailUtil = new EmailUtil();
-//
-//        if (validateUsernameAndEmail()) {
-//            reset_token = generateRandomToken();
-//
-//            boolean response = emailUtil.sendPasswordResetEmail(user_name, emailAddress, reset_token);
-//            if (response) {
-//                txt_recovery_token.setDisable(false);
-//                btn_reset_password.setDisable(false);
-//            } else {
-//                Alert alert = new Alert(Alert.AlertType.ERROR);
-//                alert.setTitle("Error");
-//                alert.setHeaderText("A network error occurred.");
-//                alert.showAndWait();
-//            }
-//        }
-//
-//
-//    }
+      public void sendOffers(){
+
+
+            String htmlText = message_Txt.getText();;
+            String email  =   offers_Email.getText();
+
+          if (FormValidate.validateEmail(email) && htmlText.equals("") && email.equals("") ) {
+              Alert alert = new Alert(Alert.AlertType.ERROR);
+              alert.setTitle("Error");
+              alert.setHeaderText("Invalid email address.");
+              alert.showAndWait();
+          }else{
+
+            EmailUtil offerSend = new EmailUtil();
+            if(!offerSend.sendOffersEmail(htmlText,email)){
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Fail");
+                alert.setHeaderText("Email Send Fail ");
+                alert.showAndWait();
+                LOG.info("Email Send  to " + email);
+
+            }else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Offer Send");
+                alert.setHeaderText("Email has been send !");
+                alert.showAndWait();
+            }
+
+        }
+
+
+    }
 }
 
     
