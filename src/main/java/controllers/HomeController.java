@@ -42,9 +42,15 @@ public class HomeController {
      * load Supplier FXML into center of the home borderpane.
      */
     public void loadSupplierPanel() {
+
         loadCenterPanel("/views/Supplier.fxml");
     }
-
+    public void loadFinancePanel() {
+        loadCenterPanel("/views/Finance.fxml");
+    }
+    public void loadOffersPanel() {
+        loadCenterPanel("/views/Advertising.fxml");
+    }
     /**
      * Loads the FXML scene to the center of home borderpane.
      *
