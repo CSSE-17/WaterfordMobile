@@ -15,8 +15,10 @@ import org.slf4j.LoggerFactory;
 import util.Cypher;
 
 public class LoginController {
-    static final Logger LOG = LoggerFactory.getLogger(Main.class);
+    static final Logger LOG = LoggerFactory.getLogger(LoginController.class);
     public static final int MAX_LOGIN_ATTEMPTS = 5;
+    public static String loggedInUser;
+    public static String loggedInUserType;
 
     private int attemptsLeft;
     private boolean authenticationError;
@@ -88,8 +90,9 @@ public class LoginController {
 
         if (validateCredentails(username, password)) {
             authenticationError = Boolean.FALSE;
+
+            LOG.info("User " + loggedInUser + " logged in as " + loggedInUserType);
             displayHome();
-            // TODO: display home
         } else {
             authenticationError = Boolean.TRUE;
             processAuthError();
@@ -131,6 +134,8 @@ public class LoginController {
         userDAO.exit();
 
         if (user != null && user.getPassword().equals(passwordHash)) {
+            loggedInUser = user.getUserName();
+            loggedInUserType = user.getAccType();
             return true;
         }
         return false;
@@ -148,4 +153,25 @@ public class LoginController {
             updateMessages();
         }
     }
+
+    /**
+     * Show password recovery wizard.
+     */
+    public void gotoPasswordRecovery() {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/views/PasswordRecovery.fxml"));
+            Scene home = new Scene(root);
+            Stage stage = new Stage();
+            stage.setScene(home);
+            stage.setResizable(false);
+            stage.show();
+
+            // close current window
+            closeLogin();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }

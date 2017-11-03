@@ -45,6 +45,17 @@ public class HomeController {
         loadCenterPanel("/views/Supplier.fxml");
     }
 
+    public void loadInventoryPanel() {
+        loadCenterPanel("/views/Inventory.fxml");
+    }
+
+    /**
+     * load the Human Resources FXML into center of the home borderpane.
+     */
+    public void loadHumanResourcespanel() {
+        loadCenterPanel("/views/HumanResources.fxml");
+    }
+
     /**
      * load Deliveries FXML into center of the home borderpane.
      */

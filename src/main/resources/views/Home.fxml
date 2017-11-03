@@ -49,7 +49,7 @@
                                 <InnerShadow blurType="ONE_PASS_BOX" height="5.0" radius="3.25" width="10.0" />
                             </effect>
                         </Button>
-                        <Button fx:id="sidebar_human_resources" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="60.0" prefWidth="210.0" styleClass="sidemar-menu-button" text=" HUMAN RESOURCES" textFill="WHITE">
+                        <Button fx:id="sidebar_human_resources" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#loadHumanResourcespanel" prefHeight="60.0" prefWidth="210.0" styleClass="sidemar-menu-button" text=" HUMAN RESOURCES" textFill="WHITE">
                             <font>
                                 <Font name="Segoe UI Semibold" size="14.0" />
                             </font>
@@ -79,7 +79,7 @@
                                 <InnerShadow blurType="ONE_PASS_BOX" height="5.0" radius="3.25" width="10.0" />
                             </effect>
                         </Button>
-                        <Button fx:id="sidebar_inventory" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="60.0" prefWidth="210.0" styleClass="sidemar-menu-button" text=" INVENTORY" textFill="WHITE">
+                        <Button fx:id="sidebar_inventory" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#loadInventoryPanel" prefHeight="60.0" prefWidth="210.0" styleClass="sidemar-menu-button" text=" INVENTORY" textFill="WHITE">
                             <font>
                                 <Font name="Segoe UI Semibold" size="14.0" />
                             </font>
