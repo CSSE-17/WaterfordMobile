@@ -20,6 +20,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import models.UserEntity;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import util.Cypher;
 import util.EmailUtil;
 import util.FormValidate;
@@ -30,6 +32,8 @@ import util.FormValidate;
  * @author Mahendra Tennakoon
  */
 public class PasswordRecoveryController implements Initializable {
+
+    static final Logger LOG = LoggerFactory.getLogger(PasswordRecoveryController.class);
 
     @FXML
     private AnchorPane card_step_1;
@@ -126,6 +130,8 @@ public class PasswordRecoveryController implements Initializable {
     public void sendResetToken() {
         user_name = txt_user_name.getText();
         String emailAddress = txt_email.getText();
+
+        LOG.info("Password recovery attempt for user " + user_name);
 
         EmailUtil emailUtil = new EmailUtil();
 
