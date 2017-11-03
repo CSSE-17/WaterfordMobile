@@ -35,12 +35,12 @@
                   </Label>
                   <VBox layoutX="15.0" layoutY="151.0" prefHeight="67.0" prefWidth="484.0" spacing="20.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
                      <children>
-                        <TextField promptText="User name">
+                        <TextField fx:id="txt_user_name" promptText="User name">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </TextField>
-                        <PasswordField promptText="Password">
+                        <PasswordField fx:id="txt_password" promptText="Password">
                            <font>
                               <Font size="18.0" />
                            </font>

@@ -44,8 +44,11 @@ public class UserDAO {
         session.close();
     }
 
-    public void read() {
-        // code to get a book
+    public UserEntity read(String username) {
+        Session session = sessionFactory.openSession();
+        UserEntity user = session.get(UserEntity.class, username);
+        session.close();
+        return user;
     }
 
     public void update() {

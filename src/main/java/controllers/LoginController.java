@@ -1,9 +1,12 @@
 package controllers;
 
+import dao.UserDAO;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import models.UserEntity;
 
 public class LoginController {
     public static final int MAX_LOGIN_ATTEMPTS = 5;
@@ -17,6 +20,10 @@ public class LoginController {
     private Label msg_auth_error;
     @FXML
     private Label msg_attempts_left;
+    @FXML
+    private TextField txt_user_name;
+    @FXML
+    private TextField txt_password;
 
     /**
      * Called automatically when the FXML is loaded.
@@ -69,8 +76,12 @@ public class LoginController {
      * If not, update relevant messages.
      */
     public void login() {
-        if (validateCredentails("username", "password")) {
+        String username = txt_user_name.getText();
+        String password = txt_password.getText();
+
+        if (validateCredentails(username, password)) {
             authenticationError = Boolean.FALSE;
+            displayHome();
             // TODO: display home
         } else {
             authenticationError = Boolean.TRUE;
@@ -79,13 +90,28 @@ public class LoginController {
     }
 
     /**
+     * Close the login stage and display 'home' for the authenticated user.
+     */
+    private void displayHome() {
+
+    }
+
+    /**
      * Validate login credentials.
      * @param userName
      * @param password
      */
     private boolean validateCredentails(String userName, String password) {
-        // TODO: implement
-        authenticationError = true;
+        UserDAO userDAO = new UserDAO();
+        userDAO.setup();
+        UserEntity user = userDAO.read(userName);
+        userDAO.exit();
+
+        //TODO: md5 encrypt password
+
+        if (user.getPassword().equals(password)) {
+            return true;
+        }
         return false;
     }
 
