@@ -109,7 +109,7 @@
                                 <InnerShadow blurType="ONE_PASS_BOX" height="5.0" radius="3.25" width="10.0" />
                             </effect>
                         </Button>
-                        <Button fx:id="sidebar_finance" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="60.0" prefWidth="210.0" styleClass="sidemar-menu-button" text=" FINANCE" textFill="WHITE">
+                        <Button fx:id="sidebar_finance" alignment="BASELINE_LEFT"  mnemonicParsing="false" prefHeight="60.0" prefWidth="210.0" styleClass="sidemar-menu-button" text=" FINANCE" onAction="#loadFinancePanel" textFill="WHITE">
                             <font>
                                 <Font name="Segoe UI Semibold" size="14.0" />
                             </font>
@@ -139,7 +139,7 @@
                                 <InnerShadow blurType="ONE_PASS_BOX" height="5.0" radius="3.25" width="10.0" />
                             </effect>
                         </Button>
-                        <Button fx:id="sidebar_deliveries" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="60.0" prefWidth="210.0" styleClass="sidemar-menu-button" text=" DELIVERIES" textFill="WHITE">
+                        <Button fx:id="sidebar_deliveries" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#loadDeliveryPanel" prefHeight="60.0" prefWidth="210.0" styleClass="sidemar-menu-button" text=" DELIVERIES" textFill="WHITE">
                             <font>
                                 <Font name="Segoe UI Semibold" size="14.0" />
                             </font>
@@ -154,7 +154,7 @@
                                 <InnerShadow blurType="ONE_PASS_BOX" height="5.0" radius="3.25" width="10.0" />
                             </effect>
                         </Button>
-                        <Button fx:id="sidebar_advertising" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="60.0" prefWidth="210.0" styleClass="sidemar-menu-button" text=" ADVERTISING" textFill="WHITE">
+                        <Button fx:id="sidebar_advertising" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="60.0" prefWidth="210.0" styleClass="sidemar-menu-button" onAction="#loadOffersPanel" text=" ADVERTISING" textFill="WHITE">
                             <font>
                                 <Font name="Segoe UI Semibold" size="14.0" />
                             </font>
