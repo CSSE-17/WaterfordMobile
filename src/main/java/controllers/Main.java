@@ -1,13 +1,11 @@
 package controllers;
 
-import dao.UserDAO;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import models.UserEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,14 +17,6 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         LOG.info("Starting application.");
-
-        //TODO: remove
-//        UserDAO userDAO = new UserDAO();
-//        userDAO.setup();
-//        UserEntity user = userDAO.read("admin");
-
-//        userDAO.create();
-//        userDAO.exit();
 
         stage = primaryStage;
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("views/login.fxml"));
