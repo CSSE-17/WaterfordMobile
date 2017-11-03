@@ -14,7 +14,6 @@ import org.slf4j.LoggerFactory;
 public class Main extends Application {
     static final Logger LOG = LoggerFactory.getLogger(Main.class);
 
-
     private Stage stage;
 
     @Override

@@ -2,13 +2,19 @@ package controllers;
 
 import dao.UserDAO;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import models.UserEntity;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class LoginController {
+    static final Logger LOG = LoggerFactory.getLogger(Main.class);
     public static final int MAX_LOGIN_ATTEMPTS = 5;
 
     private int attemptsLeft;
@@ -94,6 +100,19 @@ public class LoginController {
      */
     private void displayHome() {
 
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/views/Home.fxml"));
+            Scene home = new Scene(root);
+            Stage stage = new Stage();
+            stage.setScene(home);
+            stage.setMaximized(true);
+            stage.show();
+
+            // close login.
+            closeLogin();
+        }catch(Exception e) {
+            LOG.error("Error displaying home." + e);
+        }
     }
 
     /**
@@ -109,7 +128,7 @@ public class LoginController {
 
         //TODO: md5 encrypt password
 
-        if (user.getPassword().equals(password)) {
+        if (user != null && user.getPassword().equals(password)) {
             return true;
         }
         return false;

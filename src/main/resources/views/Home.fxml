@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="border_pane_home" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HomeController">
+    <top>
+        <AnchorPane prefHeight="70.0" prefWidth="750.0" styleClass="header-main" BorderPane.alignment="CENTER">
+            <children>
+                <Label contentDisplay="RIGHT" layoutX="15.0" layoutY="30.0" prefWidth="211.0" text="Deema Baby Fair" textFill="AQUA" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0">
+                    <font>
+                        <Font name="Open Sans Semibold" size="24.0" />
+                    </font>
+                </Label>
+                <Label fx:id="lbl_logged_in_user" layoutX="681.0" layoutY="39.0" text="User name" textFill="#faffb8" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="20.0">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+    </top>
+    <left>
+        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <children>
+                <VBox layoutX="34.0" layoutY="52.0" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #333333;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <children>
+                        <Button fx:id="sidebar_business_overview" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="60.0" prefWidth="210.0" styleClass="sidemar-menu-button" text=" BUSINESS OVERVIEW" textFill="WHITE">
+                            <font>
+                                <Font name="Segoe UI Semibold" size="14.0" />
+                            </font>
+                            <graphic>
+                                <ImageView>
+                                    <image>
+                                        <Image url="@../images/dashboard-32.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                            <effect>
+                                <InnerShadow blurType="ONE_PASS_BOX" height="5.0" radius="3.25" width="10.0" />
+                            </effect>
+                        </Button>
+                        <Button fx:id="sidebar_human_resources" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="60.0" prefWidth="210.0" styleClass="sidemar-menu-button" text=" HUMAN RESOURCES" textFill="WHITE">
+                            <font>
+                                <Font name="Segoe UI Semibold" size="14.0" />
+                            </font>
+                            <graphic>
+                                <ImageView>
+                                    <image>
+                                        <Image url="@../images/businessman-32.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                            <effect>
+                                <InnerShadow blurType="ONE_PASS_BOX" height="5.0" radius="3.25" width="10.0" />
+                            </effect>
+                        </Button>
+                        <Button fx:id="sidebar_sales" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="60.0" prefWidth="210.0" styleClass="sidemar-menu-button" text=" SALES" textFill="WHITE">
+                            <font>
+                                <Font name="Segoe UI Semibold" size="14.0" />
+                            </font>
+                            <graphic>
+                                <ImageView>
+                                    <image>
+                                        <Image url="@../images/shop-32.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                            <effect>
+                                <InnerShadow blurType="ONE_PASS_BOX" height="5.0" radius="3.25" width="10.0" />
+                            </effect>
+                        </Button>
+                        <Button fx:id="sidebar_inventory" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="60.0" prefWidth="210.0" styleClass="sidemar-menu-button" text=" INVENTORY" textFill="WHITE">
+                            <font>
+                                <Font name="Segoe UI Semibold" size="14.0" />
+                            </font>
+                            <graphic>
+                                <ImageView>
+                                    <image>
+                                        <Image url="@../images/list-ingredients-32.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                            <effect>
+                                <InnerShadow blurType="ONE_PASS_BOX" height="5.0" radius="3.25" width="10.0" />
+                            </effect>
+                        </Button>
+                        <Button fx:id="sidebar_suppliers" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="60.0" prefWidth="210.0" styleClass="sidemar-menu-button" text=" SUPPLIERS" textFill="WHITE">
+                            <font>
+                                <Font name="Segoe UI Semibold" size="14.0" />
+                            </font>
+                            <graphic>
+                                <ImageView>
+                                    <image>
+                                        <Image url="@../images/group-32.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                            <effect>
+                                <InnerShadow blurType="ONE_PASS_BOX" height="5.0" radius="3.25" width="10.0" />
+                            </effect>
+                        </Button>
+                        <Button fx:id="sidebar_finance" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="60.0" prefWidth="210.0" styleClass="sidemar-menu-button" text=" FINANCE" textFill="WHITE">
+                            <font>
+                                <Font name="Segoe UI Semibold" size="14.0" />
+                            </font>
+                            <graphic>
+                                <ImageView>
+                                    <image>
+                                        <Image url="@../images/money-bag-32.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                            <effect>
+                                <InnerShadow blurType="ONE_PASS_BOX" height="5.0" radius="3.25" width="10.0" />
+                            </effect>
+                        </Button>
+                        <Button fx:id="sidebar_customers" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="60.0" prefWidth="210.0" styleClass="sidemar-menu-button" text=" CUSTOMERS" textFill="WHITE">
+                            <font>
+                                <Font name="Segoe UI Semibold" size="14.0" />
+                            </font>
+                            <graphic>
+                                <ImageView>
+                                    <image>
+                                        <Image url="@../images/conference-call-32.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                            <effect>
+                                <InnerShadow blurType="ONE_PASS_BOX" height="5.0" radius="3.25" width="10.0" />
+                            </effect>
+                        </Button>
+                        <Button fx:id="sidebar_deliveries" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="60.0" prefWidth="210.0" styleClass="sidemar-menu-button" text=" DELIVERIES" textFill="WHITE">
+                            <font>
+                                <Font name="Segoe UI Semibold" size="14.0" />
+                            </font>
+                            <graphic>
+                                <ImageView>
+                                    <image>
+                                        <Image url="@../images/delivery-32.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                            <effect>
+                                <InnerShadow blurType="ONE_PASS_BOX" height="5.0" radius="3.25" width="10.0" />
+                            </effect>
+                        </Button>
+                        <Button fx:id="sidebar_advertising" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="60.0" prefWidth="210.0" styleClass="sidemar-menu-button" text=" ADVERTISING" textFill="WHITE">
+                            <font>
+                                <Font name="Segoe UI Semibold" size="14.0" />
+                            </font>
+                            <graphic>
+                                <ImageView>
+                                    <image>
+                                        <Image url="@../images/megaphone-32.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                            <effect>
+                                <InnerShadow blurType="ONE_PASS_BOX" height="5.0" radius="3.25" width="10.0" />
+                            </effect>
+                        </Button>
+                        <Button fx:id="sidebar_infrastructure" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="60.0" prefWidth="210.0" styleClass="sidemar-menu-button" text=" INFRASTRUCTURE" textFill="WHITE">
+                            <font>
+                                <Font name="Segoe UI Semibold" size="14.0" />
+                            </font>
+                            <graphic>
+                                <ImageView>
+                                    <image>
+                                        <Image url="@../images/building-32.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                            <effect>
+                                <InnerShadow blurType="ONE_PASS_BOX" height="5.0" radius="3.25" width="10.0" />
+                            </effect>
+                        </Button>
+                        <Button fx:id="sidebar_useraccounts" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="60.0" prefWidth="210.0" styleClass="sidemar-menu-button" text=" USER ACCOUNTS" textFill="WHITE">
+                            <font>
+                                <Font name="Segoe UI Semibold" size="14.0" />
+                            </font>
+                            <graphic>
+                                <ImageView>
+                                    <image>
+                                        <Image url="@../images/edit-user-32.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                            <effect>
+                                <InnerShadow blurType="ONE_PASS_BOX" height="5.0" radius="3.25" width="10.0" />
+                            </effect>
+                        </Button>
+                    </children>
+                </VBox>
+            </children>
+        </AnchorPane>
+    </left>
+    <center>
+        <AnchorPane BorderPane.alignment="CENTER">
+            <children>
+                <StackPane fx:id="stackpane_home_center" prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            </children>
+        </AnchorPane>
+    </center>
+   <stylesheets>
+      <URL value="@../css/Home_style.css" />
+   </stylesheets>
+</BorderPane>
