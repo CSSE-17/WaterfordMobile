@@ -106,21 +106,21 @@ public class InventoryController implements Initializable {
         loadReorderTable();
         generateItemID();
         tbl_invent.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
-            InventoryEntity e = (InventoryEntity) obs.getValue();
+            InventoryEntity entity= (InventoryEntity) obs.getValue();
 
-            if (e == null) {
+            if (entity== null) {
                 return;
             }
 
-            String item_code = e.getItem_code();
-            String item_name = e.getItem_name();
-            String description = e.getDescription();
-            int qty = e.getQuantity();
-            String rec_from = e.getReceivefrm();
-            String rec_date = e.getReceivedate();
-            String exp_date = e.getExpiredate();
-            Double unit_price = e.getUnit_price();
-            int min_level = e.getMin_level();
+            String item_code = entity.getItem_code();
+            String item_name = entity.getItem_name();
+            String description = entity.getDescription();
+            int qty = entity.getQuantity();
+            String rec_from = entity.getReceivefrm();
+            String rec_date = entity.getReceivedate();
+            String exp_date = entity.getExpiredate();
+            Double unit_price = entity.getUnit_price();
+            int min_level = entity.getMin_level();
 
             txt_itemcode.setText(item_code);
             txt_itemname.setText(item_name);
@@ -138,20 +138,20 @@ public class InventoryController implements Initializable {
         });
 
         tbl_reorder.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
-            InventoryEntity e = (InventoryEntity) obs.getValue();
+            InventoryEntity entity= (InventoryEntity) obs.getValue();
 
-            if (e == null) {
+            if (entity== null) {
                 return;
             }
 
-            String rec_from = e.getReceivefrm();
+            String rec_from = entity.getReceivefrm();
 
             lbl_supnamefield.setText(rec_from);
         });
 
     }
 
-    public void adddetails() {
+    public void addDetails() {
         try {
             if (!checkInventoryEmptyFields() && checkNumericFields()) {
 
@@ -323,14 +323,14 @@ public class InventoryController implements Initializable {
                                 return;
                             }
 
-                            InventoryEntity e = (InventoryEntity) getTableRow().getItem();
+                            InventoryEntity entity = (InventoryEntity) getTableRow().getItem();
 
-                            if (e == null) {
+                            if (entity == null) {
                                 return;
                             }
 
-                            int qty = e.getQuantity();
-                            int minqty = e.getMin_level();
+                            int qty = entity.getQuantity();
+                            int minqty = entity.getMin_level();
                             setText(item);
 
                             if (qty < minqty) {
@@ -460,8 +460,6 @@ public class InventoryController implements Initializable {
         } else if (fv.isEmptyField(txt_recievefrom.getText(), "Receive From")) {
             return true;
         } else if (fv.isEmptyField(dtn_recievedate.getValue().toString(), "Receive Date")) {
-            return true;
-        } else if (fv.isEmptyField(dtn_expiredate.getValue().toString(), "Expire Date")) {
             return true;
         } else if (fv.isEmptyField(txt_unitprice.getText(), "Unit Price")) {
             return true;
