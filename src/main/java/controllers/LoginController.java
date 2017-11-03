@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 import models.UserEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import util.Cypher;
 
 public class LoginController {
     static final Logger LOG = LoggerFactory.getLogger(Main.class);
@@ -121,14 +122,15 @@ public class LoginController {
      * @param password
      */
     private boolean validateCredentails(String userName, String password) {
+        // Generate md5 hash from entered password.
+        String passwordHash = Cypher.generateMD5(password);
+
         UserDAO userDAO = new UserDAO();
         userDAO.setup();
         UserEntity user = userDAO.read(userName);
         userDAO.exit();
 
-        //TODO: md5 encrypt password
-
-        if (user != null && user.getPassword().equals(password)) {
+        if (user != null && user.getPassword().equals(passwordHash)) {
             return true;
         }
         return false;
