@@ -129,7 +129,6 @@ public class SupplierController implements Initializable {
             btn_update.setVisible(true);
             btn_delete.setVisible(true);
         });
-        // TODO
     }
 
     public void addsupplier() {
