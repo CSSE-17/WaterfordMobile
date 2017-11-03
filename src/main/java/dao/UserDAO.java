@@ -51,8 +51,14 @@ public class UserDAO {
         return user;
     }
 
-    public void update() {
-        // code to modify a book
+    public void update(UserEntity user) {
+        Session session = sessionFactory.openSession();
+
+        session.beginTransaction();
+        session.update(user);
+        session.getTransaction().commit();
+
+        session.close();
     }
 
     public void delete() {
