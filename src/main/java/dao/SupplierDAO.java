@@ -1,13 +1,13 @@
 package dao;
 
-import models.UserEntity;
+import models.SupplierEntity;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
-public class UserDAO {
+public class SupplierDAO {
     protected SessionFactory sessionFactory;
 
     public void setup() {
@@ -25,37 +25,14 @@ public class UserDAO {
         sessionFactory.close();
     }
 
-    public void create() {
-        UserEntity user = new UserEntity();
-        user.setUserName("admin");
-        user.setPassword("1qaz2wsx");
-        user.setLastName("Tennakoon");
-        user.setFirstName("Mahendra");
-        user.setAccType("admin");
-        user.setAccessPrivileges("101010");
-        user.setEmail("mahendrathennakoon@gmail.com");
-
+    public void create(SupplierEntity supplier) {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
 
-        session.save(user);
+        session.save(supplier);
 
         session.getTransaction().commit();
         session.close();
-    }
 
-    public UserEntity read(String username) {
-        Session session = sessionFactory.openSession();
-        UserEntity user = session.get(UserEntity.class, username);
-        session.close();
-        return user;
-    }
-
-    public void update() {
-        // code to modify a book
-    }
-
-    public void delete() {
-        // code to remove a book
     }
 }

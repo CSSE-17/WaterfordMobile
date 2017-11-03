@@ -1,0 +1,14 @@
+.sidemar-menu-button {
+    -fx-background-color: #333333;
+    -fx-border: none;
+}
+.sidemar-menu-button:hover {
+    -fx-background-color: #1B9BFF;
+    -fx-effect: innershadow( gaussian , rgba(0,0,0,0.7) , 20,0,0,0 );
+}
+.sidemar-menu-button:selected {
+    -fx-background-color: #1B9BFF;
+}
+.header-main {
+    -fx-background-color: #000d1a;
+}

@@ -1,11 +1,20 @@
 package controllers;
 
+import dao.UserDAO;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import models.UserEntity;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class LoginController {
+    static final Logger LOG = LoggerFactory.getLogger(Main.class);
     public static final int MAX_LOGIN_ATTEMPTS = 5;
 
     private int attemptsLeft;
@@ -17,6 +26,10 @@ public class LoginController {
     private Label msg_auth_error;
     @FXML
     private Label msg_attempts_left;
+    @FXML
+    private TextField txt_user_name;
+    @FXML
+    private TextField txt_password;
 
     /**
      * Called automatically when the FXML is loaded.
@@ -69,12 +82,36 @@ public class LoginController {
      * If not, update relevant messages.
      */
     public void login() {
-        if (validateCredentails("username", "password")) {
+        String username = txt_user_name.getText();
+        String password = txt_password.getText();
+
+        if (validateCredentails(username, password)) {
             authenticationError = Boolean.FALSE;
+            displayHome();
             // TODO: display home
         } else {
             authenticationError = Boolean.TRUE;
             processAuthError();
+        }
+    }
+
+    /**
+     * Close the login stage and display 'home' for the authenticated user.
+     */
+    private void displayHome() {
+
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/views/Home.fxml"));
+            Scene home = new Scene(root);
+            Stage stage = new Stage();
+            stage.setScene(home);
+            stage.setMaximized(true);
+            stage.show();
+
+            // close login.
+            closeLogin();
+        }catch(Exception e) {
+            LOG.error("Error displaying home." + e);
         }
     }
 
@@ -84,8 +121,16 @@ public class LoginController {
      * @param password
      */
     private boolean validateCredentails(String userName, String password) {
-        // TODO: implement
-        authenticationError = true;
+        UserDAO userDAO = new UserDAO();
+        userDAO.setup();
+        UserEntity user = userDAO.read(userName);
+        userDAO.exit();
+
+        //TODO: md5 encrypt password
+
+        if (user != null && user.getPassword().equals(password)) {
+            return true;
+        }
         return false;
     }
 
