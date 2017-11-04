@@ -180,6 +180,7 @@ public class FormValidate {
             if (!Character.isDigit(c)) {
                 return false;
             }
+            return true;
         }
         return true;
     }

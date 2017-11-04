@@ -13,7 +13,7 @@ public class Invoice {
     private String item_no;
     private String description;
     private int qty;
-    private Date date;
+    private java.sql.Date date;
     private String invoice_no;
     private double discount;
     private String customer;
@@ -216,13 +216,13 @@ public class Invoice {
    
 
     public String generateInvoiceNo() {
-        
+
             
         int r_count = 1;
 
         JDBC j = new JDBC();
         try {
-            ResultSet rset = j.getData("SELECT COUNT(inv_no) FROM invoice");
+            ResultSet rset = j.getData("SELECT MAX(inv_no) FROM waterford_mobile.invoice");
             if (rset.next()) {
                 r_count = rset.getInt(1) + 1;
             }
@@ -230,7 +230,7 @@ public class Invoice {
             e.printStackTrace();
         }
         
-        int invoice_int = r_count + 1;
+        int invoice_int = r_count;
         String invoice_num = Integer.toString(invoice_int);
         return invoice_num;
     }

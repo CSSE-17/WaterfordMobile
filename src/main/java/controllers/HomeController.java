@@ -93,4 +93,14 @@ public class HomeController implements Initializable {
             e.printStackTrace();
         }
     }
+
+
+    public void loadCustomerPanel() {
+        loadCenterPanel("/views/Customer_Details.fxml");
+    }
+
+    public void loadSalesPanel() {
+        loadCenterPanel("/views/Sale.fxml");
+    }
+
 }
