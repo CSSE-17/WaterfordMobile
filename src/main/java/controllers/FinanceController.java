@@ -39,6 +39,8 @@ import models.RentalPayment;
 import models.WaterBill;
 import models.searchCashPayee;
 import models.searchChequePayee;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import util.JDBC;
 
 /**
@@ -49,6 +51,7 @@ import util.JDBC;
 public class FinanceController implements Initializable {
 
     JDBC db = new JDBC();
+    static final Logger LOG = LoggerFactory.getLogger(PasswordRecoveryController.class);
     //electricitybill add fxid
     @FXML
     private TextField txt_ebill_no;
@@ -307,7 +310,7 @@ public class FinanceController implements Initializable {
             txt_eunits.setText(Integer.toString(ebill.getEunits()));
             txt_edatep.setValue(LocalDate.parse(ebill.getPayment_date()));
             btn_addelecbill.setVisible(false);
-
+            LOG.info("Electricity_bill added");
         });
         table_water_bills.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (obs.getValue() == null) {
@@ -320,6 +323,7 @@ public class FinanceController implements Initializable {
             txt_wunits.setText(Integer.toString(wbill.getWunits()));
             txt_wdatep.setValue(LocalDate.parse(wbill.getPayment_date()));
             btn_addwaterbill.setVisible(false);
+            LOG.info(" WaterBill added");
         });
         table_rentals.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (obs.getValue() == null) {
@@ -646,7 +650,7 @@ public class FinanceController implements Initializable {
     }
 
     @FXML
-    private void addelecbill(ActionEvent event) {
+    private void addElecBill(ActionEvent event) {
         //btn_addelecbill.setVisible(true);
         
         if (!isNumbersDoubleOnly(txt_eamount.getText()) || !isNumbersIntOnly(txt_eunits.getText()) || !AlphaNumeric(txt_ebill_no.getText())) {
@@ -678,11 +682,7 @@ public class FinanceController implements Initializable {
                 lbl_edate.setVisible(false);
             }
         } else {
-            //if (!checkElectricityBillEmptyFields()) {
-//           lbl_emount.setVisible(false);
-//            lbl_eunits.setVisible(false);
-//            lbl_ebill.setVisible(false);
-//            lbl_edate.setVisible(false);
+
             String BillNo = txt_ebill_no.getText();
             double Amount = Double.parseDouble(txt_eamount.getText());
             int units = Integer.parseInt(txt_eunits.getText());
@@ -713,6 +713,7 @@ public class FinanceController implements Initializable {
             alert.setHeaderText("Bill Adding Request");
             alert.setContentText("Adding Electricity Billing Information is unsuccessfull!!!");
             alert.showAndWait();
+            LOG.info("Adding Electricity Billing Information is unsuccessfull!!!");
             }
             // }
         }
