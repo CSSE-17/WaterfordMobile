@@ -22,6 +22,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import models.SupplierEntity;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import util.FormValidate;
 import util.JDBC;
 
@@ -31,6 +33,7 @@ import util.JDBC;
  * @author Waruna
  */
 public class SupplierController implements Initializable {
+    static final Logger LOG = LoggerFactory.getLogger(LoginController.class);
     JDBC db = new JDBC();
 
     @FXML
@@ -181,6 +184,7 @@ public class SupplierController implements Initializable {
             alert.setTitle("ERROR");
             alert.setHeaderText("Fields Cannot be Empty");
             alert.showAndWait();
+            LOG.info("Fields Cannot be Empty");
 
         }
 
@@ -209,6 +213,7 @@ public class SupplierController implements Initializable {
             return supplier;
         } catch (Exception ex) {
             ex.printStackTrace();
+            LOG.info("error getAllSupplierdata" +ex);
         }
         return supplier;
     }
@@ -281,11 +286,12 @@ public class SupplierController implements Initializable {
 
             generateSupplierID();
 
-        } catch (Exception e) {
+        } catch (Exception ex) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("ERROR");
             alert.setHeaderText("Fields Cannot be Empty");
             alert.showAndWait();
+            LOG.info("error updateSupplier" +ex);
         }
 
     }
@@ -405,6 +411,7 @@ public class SupplierController implements Initializable {
             return supplier;
         } catch (Exception ex) {
             ex.printStackTrace();
+            LOG.info("error getSearchSuppierdata" +ex);
         }
         return supplier;
     }

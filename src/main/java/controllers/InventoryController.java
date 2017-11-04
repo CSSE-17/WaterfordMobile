@@ -27,7 +27,9 @@ package controllers;
         import javafx.scene.control.cell.PropertyValueFactory;
         import javafx.scene.paint.Color;
         import models.InventoryEntity;
-        import util.FormValidate;
+       import org.slf4j.Logger;
+       import org.slf4j.LoggerFactory;
+       import util.FormValidate;
         import util.JDBC;
 
 /**
@@ -37,6 +39,7 @@ package controllers;
  */
 public class InventoryController implements Initializable {
 
+    static final Logger LOG = LoggerFactory.getLogger(LoginController.class);
     JDBC database = new JDBC();
 
     @FXML
@@ -167,7 +170,7 @@ public class InventoryController implements Initializable {
 
                 InventoryEntity inventory = new InventoryEntity(itemCode, itemName,description,quantity ,receiveFrm , receiveDate , expireDate ,unitPrice , + minLevel);
                 inventory.addNewInventory(inventory);
-
+                loadInventoryTable();
 
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Information Alert");
@@ -187,6 +190,7 @@ public class InventoryController implements Initializable {
             alert.setTitle("ERROR");
             alert.setHeaderText("All fields must be filled");
             alert.showAndWait();
+            LOG.info("All fields must be filled");
         }
     }
 
@@ -213,6 +217,8 @@ public class InventoryController implements Initializable {
             return inventory;
         } catch (Exception ex) {
             ex.printStackTrace();
+            LOG.info("error in Add details" +ex);
+
         }
         return inventory;
     }
@@ -241,6 +247,7 @@ public class InventoryController implements Initializable {
             return inventory;
         } catch (Exception ex) {
             ex.printStackTrace();
+            LOG.info("Error in get reorder table " + ex);
         }
         return inventory;
     }
@@ -268,6 +275,7 @@ public class InventoryController implements Initializable {
             return inventory;
         } catch (Exception ex) {
             ex.printStackTrace();
+            LOG.info("Error in get search " + ex);
         }
         return inventory;
     }
@@ -342,7 +350,8 @@ public class InventoryController implements Initializable {
                 };
             });
 
-        } catch (Exception e) {
+        } catch (Exception ex) {
+            LOG.info("Error in load inventory table " + ex);
 
         }
 
@@ -420,6 +429,8 @@ public class InventoryController implements Initializable {
             alert.setTitle("ERROR");
             alert.setHeaderText("Fields Cannot be Empty");
             alert.showAndWait();
+            LOG.info("Fields Cannot be Empty when updating");
+
 
         }
 
@@ -545,11 +556,11 @@ public class InventoryController implements Initializable {
 
     public void demodata() {
 
-        txt_itemname.setText("Gift Packs");
-        txt_quantity.setText("15");
-        txt_description.setText("");
+        txt_itemname.setText("Apple 5S batery");
+        txt_quantity.setText("12");
+        txt_description.setText("64GB");
         txt_recievefrom.setText("99group pvt Ltd");
         txt_minlevel.setText("5");
-        txt_unitprice.setText("4000.00");
+        txt_unitprice.setText("2000.00");
     }
 }
