@@ -2,12 +2,16 @@ package controllers;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 
-public class HomeController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class HomeController implements Initializable {
 
     @FXML
     private Button sidebar_business_overview;
@@ -54,6 +58,14 @@ public class HomeController {
         loadCenterPanel("/views/Inventory.fxml");
     }
 
+    /**
+     * Initializes the controller class.
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        loadHumanResourcespanel();
+        lbl_logged_in_user.setText(LoginController.loggedInUser);
+    }
     /**
      * load the Human Resources FXML into center of the home borderpane.
      */
