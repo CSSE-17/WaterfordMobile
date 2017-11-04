@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.InfrastructureManagementController">
+    <children>
+        <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <top>
+                <AnchorPane prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #3b5998;" BorderPane.alignment="CENTER">
+                    <children>
+                        <Label layoutX="14.0" layoutY="44.0" text="Infrastructure Management" textFill="WHITE" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0">
+                            <font>
+                                <Font name="Segoe UI Semibold" size="18.0" />
+                            </font>
+                            <effect>
+                                <DropShadow />
+                            </effect>
+                        </Label>
+                    </children>
+                    <effect>
+                        <InnerShadow />
+                    </effect>
+                </AnchorPane>
+            </top>
+            <center>
+                <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <TabPane layoutX="75.0" layoutY="48.0" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <tabs>
+                                <Tab text="Property">
+                                    <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                            <children>
+                                                <ToolBar layoutX="14.0" layoutY="242.0" prefHeight="40.0" prefWidth="582.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                                    <items>
+                                                        <Button fx:id="btn_delete_property" mnemonicParsing="false" onAction="#delete" text="Delete Property" />
+                                                        <ButtonBar prefHeight="40.0" prefWidth="390.0" />
+                                                    </items>
+                                                </ToolBar>
+                                                <Label layoutX="14.0" layoutY="14.0" text="Filter:" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="20.0" />
+                                                <TextField fx:id="txt_property_filter" layoutX="43.0" layoutY="16.0" promptText="property id" AnchorPane.topAnchor="16.0" />
+                                                <Label layoutX="203.0" layoutY="3.0" text="Additional filter keys:" />
+                                                <CheckBox fx:id="chk_eid" layoutX="217.0" layoutY="21.0" mnemonicParsing="false" text="Electricity Bill Id" />
+                                                <CheckBox fx:id="chk_wid" layoutX="342.0" layoutY="21.0" mnemonicParsing="false" text="Water Bill Id" />
+                                                <TableView fx:id="table_property" layoutX="11.0" layoutY="61.0" prefHeight="219.0" prefWidth="662.0" AnchorPane.bottomAnchor="52.0" AnchorPane.topAnchor="50.0">
+                                                    <columnResizePolicy>
+                                                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                    </columnResizePolicy></TableView>
+                                                <Separator layoutX="698.0" layoutY="1.0" orientation="VERTICAL" prefHeight="320.0" prefWidth="24.0" />
+                                                <Pane layoutX="390.0" layoutY="8.0" prefHeight="274.0" prefWidth="203.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="40.0">
+                                                    <children>
+                                                        <Label alignment="CENTER" layoutX="14.0" prefHeight="39.0" prefWidth="175.0" text="Property Details" textAlignment="CENTER">
+                                                            <font>
+                                                                <Font name="System Bold" size="22.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <Label layoutX="1.0" layoutY="66.0" text="Electricity Bill Id :" />
+                                                        <Label layoutY="159.0" text="Rental :" />
+                                                        <Label layoutX="4.0" layoutY="115.0" text="Water Bill Id :" />
+                                                        <TextField fx:id="txt_e_id" layoutX="102.0" layoutY="62.0" prefHeight="25.0" prefWidth="101.0" />
+                                                        <TextField fx:id="txt_w_id" layoutX="102.0" layoutY="111.0" prefHeight="25.0" prefWidth="101.0" />
+                                                        <TextField fx:id="txt_rent" layoutX="102.0" layoutY="155.0" prefHeight="25.0" prefWidth="101.0" />
+                                                        <HBox layoutX="1.0" layoutY="208.0" prefHeight="37.0" prefWidth="204.0" spacing="20.0">
+                                                            <children>
+                                                                <Button fx:id="btn_add_new" mnemonicParsing="false" onAction="#addProperty" text="Add" />
+                                                                <Button fx:id="btn_update_confirm" mnemonicParsing="false" onAction="#updateConfirm" text="Update" />
+                                                                <Button fx:id="btn_clear" mnemonicParsing="false" onAction="#clear" text="Clear" />
+                                                            </children>
+                                                        </HBox>
+                                                        <Label fx:id="lbl_p_id" layoutX="6.0" layoutY="39.0" text="      " />
+                                                    </children>
+                                                </Pane>
+                                            </children>
+                                        </AnchorPane>
+                                    </content>
+                                </Tab>
+                                <Tab text="Rent Calculator">
+                                    <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                            <children>
+                                                <Label layoutX="26.0" layoutY="13.0" text="Select Property" />
+                                                <ChoiceBox fx:id="cmb_select_property" layoutX="127.0" layoutY="9.0" prefWidth="150.0" />
+                                                <Pane layoutX="12.0" layoutY="42.0" prefHeight="237.0" prefWidth="577.0">
+                                                    <children>
+                                                        <Label layoutX="12.0" layoutY="23.0" text="Property Id :" />
+                                                        <Label layoutX="169.0" layoutY="23.0" text="E Bill Id :" />
+                                                        <Label layoutX="296.0" layoutY="23.0" text="W Bill Id :" />
+                                                        <TextField fx:id="txt_wid" editable="false" layoutX="352.0" layoutY="19.0" prefHeight="25.0" prefWidth="61.0" />
+                                                        <TextField fx:id="txt_eid" editable="false" layoutX="223.0" layoutY="19.0" prefHeight="25.0" prefWidth="67.0" />
+                                                        <TextField fx:id="txt_pid" editable="false" layoutX="89.0" layoutY="19.0" prefHeight="25.0" prefWidth="69.0" />
+                                                        <Label layoutX="14.0" layoutY="67.0" text="Name :" />
+                                                        <Label layoutX="283.0" layoutY="67.0" text="NIC :" />
+                                                        <TextField fx:id="txt_name" editable="false" layoutX="63.0" layoutY="63.0" prefHeight="25.0" prefWidth="191.0" />
+                                                        <TextField fx:id="txt_nic" editable="false" layoutX="321.0" layoutY="63.0" />
+                                                        <Label layoutX="14.0" layoutY="110.0" text="Property Rental (Rs) :" />
+                                                        <Label layoutX="15.0" layoutY="148.0" text="Electricity Bill Payment (Rs) :" />
+                                                        <Label layoutX="12.0" layoutY="185.0" text="Total Amount (Rs) :" />
+                                                        <Label layoutX="281.0" layoutY="110.0" text="Pending Payments (Rs) :" />
+                                                        <TextField fx:id="txt_rental" editable="false" layoutX="134.0" layoutY="106.0" prefHeight="25.0" prefWidth="89.0" />
+                                                        <TextField fx:id="txt_pending" editable="false" layoutX="423.0" layoutY="106.0" prefHeight="25.0" prefWidth="89.0" />
+                                                        <TextField fx:id="txt_e_pay" layoutX="169.0" layoutY="144.0" prefHeight="25.0" prefWidth="89.0" />
+                                                        <Label layoutX="280.0" layoutY="148.0" text="Water Bill Payment (Rs) :" />
+                                                        <TextField fx:id="txt_w_pay" layoutX="423.0" layoutY="144.0" prefHeight="25.0" prefWidth="89.0" />
+                                                        <TextField fx:id="txt_total" editable="false" layoutX="125.0" layoutY="181.0" prefHeight="25.0" prefWidth="89.0" />
+                                                        <Label layoutX="248.0" layoutY="185.0" text="Agreement Id :" />
+                                                        <TextField fx:id="txt_agree_id" editable="false" layoutX="334.0" layoutY="183.0" prefHeight="25.0" prefWidth="89.0" />
+                                                        <Label layoutX="447.0" layoutY="185.0" text="Invoice No :" />
+                                                        <TextField fx:id="txt_invoice_id" editable="false" layoutX="513.0" layoutY="183.0" prefHeight="25.0" prefWidth="53.0" />
+                                                        <ComboBox fx:id="cmb_month" editable="true" layoutX="423.0" layoutY="19.0" prefWidth="150.0" promptText="Select Month" visibleRowCount="12" />
+                                                    </children>
+                                                </Pane>
+                                                <Button fx:id="btn_print_bill" layoutX="25.0" layoutY="289.0" mnemonicParsing="false" text="Print" />
+                                                <Separator layoutX="607.0" orientation="VERTICAL" prefHeight="322.0" prefWidth="12.0" />
+                                                <Label alignment="CENTER" layoutX="652.0" layoutY="26.0" prefHeight="17.0" prefWidth="310.0" text="Add Payments">
+                                                    <font>
+                                                        <Font name="System Bold" size="21.0" />
+                                                    </font>
+                                                </Label>
+                                                <GridPane layoutX="627.0" layoutY="73.0" prefHeight="88.0" prefWidth="271.0">
+                                                    <columnConstraints>
+                                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="174.0" minWidth="10.0" prefWidth="97.0" />
+                                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="270.0" minWidth="10.0" prefWidth="174.0" />
+                                                    </columnConstraints>
+                                                    <rowConstraints>
+                                                        <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES" />
+                                                        <RowConstraints maxHeight="30.0" minHeight="2.0" prefHeight="24.0" vgrow="SOMETIMES" />
+                                                        <RowConstraints maxHeight="28.0" minHeight="3.0" prefHeight="22.0" vgrow="SOMETIMES" />
+                                                        <RowConstraints maxHeight="25.0" minHeight="4.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                                                        <RowConstraints maxHeight="21.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+                                                    </rowConstraints>
+                                                    <children>
+                                                        <Label prefHeight="22.0" prefWidth="66.0" text="Payment Id :" />
+                                                        <Label text="Property Id :" GridPane.rowIndex="1" />
+                                                        <Label text="Agreement Id :" GridPane.rowIndex="2" />
+                                                        <Label prefHeight="23.0" prefWidth="49.0" text="Amount :" GridPane.rowIndex="3" />
+                                                        <TextField fx:id="txt_pay_id" GridPane.columnIndex="1" />
+                                                        <TextField fx:id="txt_agree_pay" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                        <TextField fx:id="txt_pid_pay" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                        <TextField fx:id="txt_amount_pay" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                    </children>
+                                                </GridPane>
+                                                <Button fx:id="btn_add_pay" layoutX="737.0" layoutY="205.0" mnemonicParsing="false" text="Add Payment" />
+                                                <Button fx:id="btn_calc" layoutX="176.0" layoutY="289.0" mnemonicParsing="false" text="Calculate &amp; Save" />
+                                            </children></AnchorPane>
+                                    </content>
+                                </Tab>
+                                <Tab text="Rental">
+                                    <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                            <children>
+                                                <Label layoutX="14.0" layoutY="14.0" text="Agreement Id :" />
+                                                <TextField fx:id="txt_agree" layoutX="101.0" layoutY="10.0" prefHeight="25.0" prefWidth="65.0" />
+                                                <DatePicker fx:id="datepick_start_date" layoutX="244.0" layoutY="10.0" prefHeight="25.0" prefWidth="134.0" promptText="select date" />
+                                                <Label layoutX="175.0" layoutY="14.0" text="Start Date :" />
+                                                <Label layoutX="386.0" layoutY="14.0" text="End Date :" />
+                                                <DatePicker fx:id="datepick_end_date" layoutX="442.0" layoutY="10.0" prefHeight="25.0" prefWidth="150.0" promptText="select date" />
+                                                <Label layoutX="14.0" layoutY="52.0" text="Property Id :" />
+                                                <ComboBox fx:id="chk_pid" layoutX="93.0" layoutY="48.0" prefHeight="25.0" prefWidth="51.0" />
+                                                <ImageView fitHeight="150.0" fitWidth="116.0" layoutX="21.0" layoutY="86.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../images" />
+                                                    </image></ImageView>
+                                                <Button fx:id="btn_browse" layoutX="47.0" layoutY="224.0" mnemonicParsing="false" text="Browse" />
+                                                <Label layoutX="205.0" layoutY="99.0" text="Name" />
+                                                <Label layoutX="205.0" layoutY="136.0" text="NIC" />
+                                                <Label layoutX="204.0" layoutY="168.0" text="Contact No" />
+                                                <Label layoutX="204.0" layoutY="202.0" text="Email" />
+                                                <Label layoutX="204.0" layoutY="241.0" text="Nature" />
+                                                <TextField fx:id="txt_name_add" layoutX="271.0" layoutY="95.0" prefHeight="25.0" prefWidth="215.0" />
+                                                <TextField fx:id="txt_nic_add" layoutX="271.0" layoutY="132.0" prefHeight="25.0" prefWidth="215.0" />
+                                                <TextField fx:id="txt_contact_add" layoutX="271.0" layoutY="164.0" prefHeight="25.0" prefWidth="215.0" />
+                                                <TextField fx:id="txt_email_add" layoutX="271.0" layoutY="198.0" prefHeight="25.0" prefWidth="215.0" />
+                                                <TextField fx:id="txt_nature_add" layoutX="271.0" layoutY="237.0" prefHeight="25.0" prefWidth="215.0" />
+                                                <VBox layoutX="505.0" layoutY="91.0" prefHeight="166.0" prefWidth="78.0" spacing="15.0">
+                                                    <children>
+                                                        <Button fx:id="btn_add_rent" mnemonicParsing="false" onAction="#addAgreement" text="Add" />
+                                                        <Button fx:id="btn_update_rent" mnemonicParsing="false" text="Update" />
+                                                        <Button fx:id="btn_delete_rent" mnemonicParsing="false" text="Delete" />
+                                                        <Button fx:id="btn_clear_rent" mnemonicParsing="false" onAction="#clearAgreement" text="Clear" />
+                                                    </children>
+                                                </VBox>
+                                            </children></AnchorPane>
+                                    </content>
+                                </Tab>
+                            </tabs>
+                        </TabPane>
+                    </children>
+                </AnchorPane>
+            </center>
+        </BorderPane>
+    </children>
+</AnchorPane>
