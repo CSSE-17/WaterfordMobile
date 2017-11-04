@@ -30,7 +30,7 @@ import util.JDBC;
 /**
  * FXML Controller class
  *
- * @author Waruni
+ * @author Pasan
  */
 public class DeliveryandDeliveryServiceController implements Initializable {
 
@@ -101,6 +101,9 @@ public class DeliveryandDeliveryServiceController implements Initializable {
         });*/
     }
 
+    /**
+     * load Deliveries Table
+     */
     public void loadDeliveriesTable() {
         TableColumn<DeliveryModel, String> delivery_id_col = new TableColumn<>("Delivery ID");
         delivery_id_col.setCellValueFactory(new PropertyValueFactory<>("deliveryId"));
@@ -118,6 +121,10 @@ public class DeliveryandDeliveryServiceController implements Initializable {
         table_delivery.setItems(getAllDeliveries());
         table_delivery.getColumns().addAll(delivery_id_col, order_date_col, delivery_cost_col, quantity_col);
     }
+
+    /**
+     * load Service Table
+     */
 
     public void loadServicesTable() {
         TableColumn<ServiceModel, String> service_id_col = new TableColumn<>("Service ID");
@@ -137,6 +144,9 @@ public class DeliveryandDeliveryServiceController implements Initializable {
         table_services.getColumns().addAll(service_id_col, name_col, address_col, contact_number_col);
     }
 
+    /**
+     * Get All Deliveries
+     */
 
     public ObservableList<DeliveryModel> getAllDeliveries() {
         ObservableList<DeliveryModel> delivery = FXCollections.observableArrayList();
@@ -160,6 +170,10 @@ public class DeliveryandDeliveryServiceController implements Initializable {
         return delivery;
     }
 
+    /**
+     * Get All Services
+     */
+
     public ObservableList<ServiceModel> getAllServices() {
         ObservableList<ServiceModel> services = FXCollections.observableArrayList();
 
@@ -181,6 +195,11 @@ public class DeliveryandDeliveryServiceController implements Initializable {
         }
         return services;
     }
+
+    /**
+     * Generate DeliverID
+     */
+
     public void generateDeliveryID () {
         String delivery_id = "";
         Calendar date = new GregorianCalendar();
@@ -200,7 +219,9 @@ public class DeliveryandDeliveryServiceController implements Initializable {
 
     }
 
-
+    /**
+     * Save Deliveris
+     */
 
     public void savedelivery() {
         if(checkEmptyField()){
@@ -224,6 +245,9 @@ public class DeliveryandDeliveryServiceController implements Initializable {
         }
     }
 
+    /**
+     * Update Deliveries
+     */
 
     public void updateDelivery() {
         String delivery_id = txt_delivery_id.getText();
@@ -257,6 +281,10 @@ public class DeliveryandDeliveryServiceController implements Initializable {
         }
     }
 
+    /**
+     * Delete Deliveries
+     */
+
     public void deleteDelivery() {
         String delivery_id = txt_delivery_id.getText();
 
@@ -278,6 +306,10 @@ public class DeliveryandDeliveryServiceController implements Initializable {
         loadDeliveriesTable();
 
     }
+
+    /**
+     * Save Services
+     */
 
     public void saveServices() {
         if(checkEmptyField()){
@@ -301,6 +333,10 @@ public class DeliveryandDeliveryServiceController implements Initializable {
 
 
     }
+
+    /**
+     * Update Services
+     */
     public void updateServices() {
         String service_id = txt_service_id.getText();
         String name = txt_name.getText();
@@ -336,6 +372,10 @@ public class DeliveryandDeliveryServiceController implements Initializable {
         else{
         }
     }
+
+    /**
+     * Delete Services
+     */
 
     public void deleteServices() {
         String service_id = txt_service_id.getText();
@@ -374,6 +414,9 @@ public class DeliveryandDeliveryServiceController implements Initializable {
         }
     }
 
+    /**
+     * Validate EmptyField
+     */
 
     private boolean checkEmptyField() {
         FormValidate fv = new FormValidate();

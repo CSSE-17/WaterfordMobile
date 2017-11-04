@@ -3,7 +3,7 @@ package models;
 import util.JDBC;
 /**
  *
- * @author Waruni
+ * @author Pasan
  */
 public class delivery {
 
