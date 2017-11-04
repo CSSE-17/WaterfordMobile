@@ -442,11 +442,11 @@ public class SupplierController implements Initializable {
 
     public void demosupdata() {
 
-        txt_supname.setText("Grand Toys");
+        txt_supname.setText("Grand Mobiles");
         txt_supdescription.setText("");
         txt_tpnumber.setText("0112485724");
         txt_address.setText("Malatha Road, Kandana");
-        txt_email.setText("grnd@gmail.com");
+        txt_email.setText("grndM@gmail.com");
         txt_accntno.setText("021457845124");
         txt_bank.setText("Nations Trust Bank");
         txt_branch.setText("Kandana");
