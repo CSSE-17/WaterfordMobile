@@ -2,12 +2,16 @@ package controllers;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 
-public class HomeController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class HomeController implements Initializable {
 
     @FXML
     private Button sidebar_business_overview;
@@ -41,9 +45,38 @@ public class HomeController {
     /**
      * load Supplier FXML into center of the home borderpane.
      */
-
+    public void loadSupplierPanel() {
+        loadCenterPanel("/views/Supplier.fxml");
+    }
+    public void loadFinancePanel() {
+        loadCenterPanel("/views/Finance.fxml");
+    }
+    public void loadOffersPanel() {
+        loadCenterPanel("/views/Advertising.fxml");
+    }
     public void loadInventoryPanel() {
         loadCenterPanel("/views/Inventory.fxml");
+    }
+
+    /**
+     * Initializes the controller class.
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        loadHumanResourcespanel();
+        lbl_logged_in_user.setText(LoginController.loggedInUser);
+    }
+    /**
+     * load the Human Resources FXML into center of the home borderpane.
+     */
+    public void loadHumanResourcespanel() {
+        loadCenterPanel("/views/HumanResources.fxml");
+    }
+    /**
+     * load Deliveries FXML into center of the home borderpane.
+     */
+    public void loadDeliveryPanel() {
+        loadCenterPanel("/views/DeliveryandDeliveryServices.fxml");
     }
 
     /**
@@ -60,9 +93,7 @@ public class HomeController {
             e.printStackTrace();
         }
     }
-    public void loadSupplierPanel() {
-        loadCenterPanel("/views/Supplier.fxml");
-    }
+
 
     public void loadCustomerPanel() {
         loadCenterPanel("/views/Customer_Details.fxml");
