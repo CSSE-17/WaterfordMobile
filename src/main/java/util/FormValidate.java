@@ -180,6 +180,7 @@ public class FormValidate {
             if (!Character.isDigit(c)) {
                 return false;
             }
+            return true;
         }
         return true;
     }
@@ -266,6 +267,15 @@ public class FormValidate {
             alert.setTitle("Error");
             alert.setHeaderText(fieldname + " should be Positive");
             alert.showAndWait();
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean isMinusValue(String input) {
+
+        double v = Double.parseDouble(input);
+        if (v <= 0) {
             return true;
         }
         return false;

@@ -50,7 +50,6 @@ public class EmailUtil {
                 return new PasswordAuthentication(userName, password);
             }
         });
-
         try {
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress("noreply"));
@@ -61,6 +60,26 @@ public class EmailUtil {
                     + "This token can only be used once and it will lead you to a page where you can reset your password."
                     + "\nIt expires after you close the password recovery wizard and nothing will happen if it's not used."
                     + "\n\nThank you,\nStore Management System - Dev Team");
+            Transport.send(message);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    public boolean sendOffersEmail(String messageText, String email) {
+        Session session = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(userName, password);
+            }
+        });
+        try {
+
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress("noreply"));
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
+            message.setSubject("New Offers !!");
+            message.setText(messageText);
             Transport.send(message);
             return true;
         } catch (Exception e) {
