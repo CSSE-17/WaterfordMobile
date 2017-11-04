@@ -34,21 +34,6 @@
             <children>
                 <VBox layoutX="34.0" layoutY="52.0" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #333333;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <children>
-                        <Button fx:id="sidebar_business_overview" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="60.0" prefWidth="210.0" styleClass="sidemar-menu-button" text=" BUSINESS OVERVIEW" textFill="WHITE">
-                            <font>
-                                <Font name="Segoe UI Semibold" size="14.0" />
-                            </font>
-                            <graphic>
-                                <ImageView>
-                                    <image>
-                                        <Image url="@../images/dashboard-32.png" />
-                                    </image>
-                                </ImageView>
-                            </graphic>
-                            <effect>
-                                <InnerShadow blurType="ONE_PASS_BOX" height="5.0" radius="3.25" width="10.0" />
-                            </effect>
-                        </Button>
                         <Button fx:id="sidebar_human_resources" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#loadHumanResourcespanel" prefHeight="60.0" prefWidth="210.0" styleClass="sidemar-menu-button" text=" HUMAN RESOURCES" textFill="WHITE">
                             <font>
                                 <Font name="Segoe UI Semibold" size="14.0" />
@@ -109,7 +94,7 @@
                                 <InnerShadow blurType="ONE_PASS_BOX" height="5.0" radius="3.25" width="10.0" />
                             </effect>
                         </Button>
-                        <Button fx:id="sidebar_finance" alignment="BASELINE_LEFT"  mnemonicParsing="false" prefHeight="60.0" prefWidth="210.0" styleClass="sidemar-menu-button" text=" FINANCE" onAction="#loadFinancePanel" textFill="WHITE">
+                        <Button fx:id="sidebar_finance" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#loadFinancePanel" prefHeight="60.0" prefWidth="210.0" styleClass="sidemar-menu-button" text=" FINANCE" textFill="WHITE">
                             <font>
                                 <Font name="Segoe UI Semibold" size="14.0" />
                             </font>
@@ -154,7 +139,7 @@
                                 <InnerShadow blurType="ONE_PASS_BOX" height="5.0" radius="3.25" width="10.0" />
                             </effect>
                         </Button>
-                        <Button fx:id="sidebar_advertising" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="60.0" prefWidth="210.0" styleClass="sidemar-menu-button" onAction="#loadOffersPanel" text=" ADVERTISING" textFill="WHITE">
+                        <Button fx:id="sidebar_advertising" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#loadOffersPanel" prefHeight="60.0" prefWidth="210.0" styleClass="sidemar-menu-button" text=" ADVERTISING" textFill="WHITE">
                             <font>
                                 <Font name="Segoe UI Semibold" size="14.0" />
                             </font>
@@ -177,21 +162,6 @@
                                 <ImageView>
                                     <image>
                                         <Image url="@../images/building-32.png" />
-                                    </image>
-                                </ImageView>
-                            </graphic>
-                            <effect>
-                                <InnerShadow blurType="ONE_PASS_BOX" height="5.0" radius="3.25" width="10.0" />
-                            </effect>
-                        </Button>
-                        <Button fx:id="sidebar_useraccounts" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="60.0" prefWidth="210.0" styleClass="sidemar-menu-button" text=" USER ACCOUNTS" textFill="WHITE">
-                            <font>
-                                <Font name="Segoe UI Semibold" size="14.0" />
-                            </font>
-                            <graphic>
-                                <ImageView>
-                                    <image>
-                                        <Image url="@../images/edit-user-32.png" />
                                     </image>
                                 </ImageView>
                             </graphic>
