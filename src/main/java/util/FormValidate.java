@@ -271,4 +271,13 @@ public class FormValidate {
         }
         return false;
     }
+
+    public static boolean isMinusValue(String input) {
+
+        double v = Double.parseDouble(input);
+        if (v <= 0) {
+            return true;
+        }
+        return false;
+    }
 }
