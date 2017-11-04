@@ -61,6 +61,13 @@ public class HomeController {
         loadCenterPanel("/views/HumanResources.fxml");
     }
     /**
+     * load Deliveries FXML into center of the home borderpane.
+     */
+    public void loadDeliveryPanel() {
+        loadCenterPanel("/views/DeliveryandDeliveryServices.fxml");
+    }
+
+    /**
      * Loads the FXML scene to the center of home borderpane.
      *
      * @param fxml_path
