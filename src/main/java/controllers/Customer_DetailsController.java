@@ -165,6 +165,15 @@ public class Customer_DetailsController implements Initializable {
         txt_address.setText(null);
         txt_email_address.setText(null);
         loadCustomerTable();
+
+        generateCustomerID();
+        txt_date.setText(LocalDate.now().toString());
+        loadCustomerTable();
+
+        table_customer.getSelectionModel().selectedItemProperty().addListener((obs, oldValue, newValue) -> {
+            CusModel cus = (CusModel) obs.getValue();
+            loadrowfromtable();
+        });
     }
 
 
