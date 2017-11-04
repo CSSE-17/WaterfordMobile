@@ -1,0 +1,25 @@
+
+.button{
+   -fx-background-color: #556B2F; 
+    -fx-color: black;
+    -fx-text-align: center;
+    -fx-font-size: 16px;
+    -fx-cursor:hand;
+    -fx-float: left;
+    -fx-display: block ;
+}
+
+.button:hover {
+    -fx-background-color: #3e8e41; 
+}
+.label{
+    -fx-background-color: #3e8e41; 
+   -fx-font-size: 11pt;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-text-fill: white;
+    -fx-opacity: 0.6;
+    
+}
+
+
+

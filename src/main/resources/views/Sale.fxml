@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1263.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SaleController">
+   <children>
+      <BorderPane layoutX="107.0" layoutY="107.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <AnchorPane maxHeight="50.0" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #3b5998;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label text="Point Of Sales" textFill="WHITE" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="18.0" />
+                     </font>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Label>
+               </children>
+               <effect>
+                  <InnerShadow />
+               </effect>
+            </AnchorPane>
+         </top>
+         <center>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <TabPane layoutX="136.0" layoutY="36.0" prefHeight="325.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <tabs>
+                      <Tab text="Invoice">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="521.0" prefWidth="782.0">
+                                 <children>
+                                    <TableView fx:id="table_new_invoice" layoutX="55.0" layoutY="26.0" prefHeight="476.0" prefWidth="422.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="245.0" AnchorPane.topAnchor="5.0">
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy></TableView>
+                                    <Pane layoutX="464.0" layoutY="45.0" prefHeight="328.0" prefWidth="242.0" AnchorPane.bottomAnchor="40.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <GridPane prefHeight="440.0" prefWidth="237.0" vgap="20.0">
+                                            <columnConstraints>
+                                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="114.0" minWidth="10.0" prefWidth="102.0" />
+                                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="135.0" minWidth="10.0" prefWidth="135.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints />
+                                                <RowConstraints />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" lineSpacing="3.0" prefHeight="17.0" prefWidth="119.0" text="Gross Total" GridPane.rowIndex="4" />
+                                                <Label alignment="CENTER" prefHeight="17.0" prefWidth="118.0" text="Sub Discount" GridPane.rowIndex="5" />
+                                                <Label alignment="CENTER" prefHeight="17.0" prefWidth="104.0" text="Net Total" GridPane.rowIndex="6" />
+                                                <Label alignment="CENTER" prefHeight="17.0" prefWidth="104.0" text="Cash" GridPane.rowIndex="8" />
+                                                <Label alignment="CENTER" prefHeight="17.0" prefWidth="107.0" text="Balance" GridPane.rowIndex="9" />
+                                                <TextField fx:id="gro_tot_txt" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                                <TextField fx:id="sub_disc_txt" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                                <TextField fx:id="net_tot_txt" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                                <TextField fx:id="cash_txt" onAction="#calc_balance" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                                                <TextField fx:id="bal_txt" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="119.0" text="Invoice No" GridPane.rowIndex="2" />
+                                                <!--<Label fx:id="lbl_customer" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="119.0" text="Customer" GridPane.rowIndex="3" />-->
+                                                <!--<TextField fx:id="cust_txt" prefHeight="33.0" prefWidth="105.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />-->
+                                                <TextField fx:id="inv_txt" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                <Button fx:id="cal_tot_but" alignment="CENTER" mnemonicParsing="false" onAction="#calculateTotal" prefHeight="25.0" prefWidth="104.0" text="Calculate Total" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                                                   <font>
+                                                      <Font name="System Bold" size="12.0" />
+                                                   </font>
+                                                </Button>
+                                                <DatePicker fx:id="date_txt" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="120.0" text="Date" GridPane.rowIndex="1" />
+                                                <Button fx:id="chk_out_but" alignment="CENTER" mnemonicParsing="false" onAction="#checkout" prefHeight="25.0" prefWidth="101.0" text="Checkout" GridPane.columnIndex="1" GridPane.rowIndex="10">
+                                                   <font>
+                                                      <Font name="System Bold" size="12.0" />
+                                                   </font></Button>
+
+                                             </children>
+                                          </GridPane>
+                                       </children>
+                                    </Pane>
+                                    <ToolBar layoutX="5.0" layoutY="254.0" prefHeight="40.0" prefWidth="672.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-72.0">
+                                      <items>
+                                          <Label text="Item Code" />
+                                          <TextField fx:id="item_txt" onAction="#searchItem" prefHeight="25.0" prefWidth="154.0" />
+                                          <Label text="Description" />
+                                          <TextField fx:id="desc_txt" editable="false" prefHeight="25.0" prefWidth="154.0" />
+                                          <Label text="Unit Price" />
+                                          <TextField fx:id="unpr_txt" editable="false" prefHeight="25.0" prefWidth="91.0" />
+                                          <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="63.0" text="Discount" />
+                                          <TextField fx:id="disc_txt" prefHeight="25.0" prefWidth="79.0" />
+                                          <Label text="Qty" />
+                                          <TextField fx:id="qty_txt" prefHeight="25.0" prefWidth="68.0" />
+                                          <Button fx:id="sale_add_btn" mnemonicParsing="false" onAction="#loadTable" prefHeight="25.0" prefWidth="100.0" text="Add to list">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font></Button>
+                                          <Button fx:id="sale_up_btn" mnemonicParsing="false" onAction="#updateSalesItem" prefHeight="25.0" prefWidth="102.0" text="Update">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font></Button>
+                                          <Button mnemonicParsing="false" onAction="#DeleteSalesItem" prefHeight="25.0" prefWidth="87.0" text="Delete">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font></Button>
+                                      </items>
+                                    </ToolBar>
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                        <Tab text="Sales History">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TableView fx:id="table_sales_history" layoutX="86.0" layoutY="25.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="35.0" />
+                                    <ToolBar layoutX="108.0" layoutY="-6.0" prefHeight="40.0" prefWidth="674.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                      <items>
+                                          <Label prefHeight="17.0" prefWidth="40.0" text="From" />
+                                          <DatePicker fx:id="date_from" prefHeight="25.0" prefWidth="170.0" />
+                                          <Label prefHeight="17.0" prefWidth="25.0" text="To" />
+                                          <DatePicker fx:id="date_to" prefHeight="25.0" prefWidth="170.0" />
+                                          <CheckBox fx:id="check_today" mnemonicParsing="false" prefHeight="17.0" prefWidth="78.0" text="Today" />
+                                      </items>
+                                    </ToolBar>
+                                    <ToolBar layoutX="58.0" layoutY="256.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                      <items>
+                                          <Label text="Total Sales" />
+                                          <TextField fx:id="tot_sale_txt" />
+                                          <Button fx:id="show_sum_btn" mnemonicParsing="false" onAction="#loadSaleshistory" text="Show Summary" />
+                                          <Button mnemonicParsing="false" text="Print" />
+                                      </items>
+                                    </ToolBar>
+                                 </children></AnchorPane>
+                          </content>
+                        </Tab>
+                        <Tab text="Exchange">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <ToolBar layoutX="243.0" layoutY="246.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                      <items>
+                                          <Label text="Comments" />
+                                          <TextField fx:id="cmt_txt" prefHeight="25.0" prefWidth="233.0" />
+                                          <Label text="Sub Return cost" />
+                                          <TextField fx:id="sub_ret_txt" />
+                                          <Button fx:id="btn_add" mnemonicParsing="false" onAction="#loadexchange" prefHeight="25.0" prefWidth="78.0" text="Add" />
+                                          <Button fx:id="btn_update" mnemonicParsing="false" onAction="#updateExchange" prefHeight="25.0" prefWidth="77.0" text="Update" />
+                                          <Button fx:id="btn_delete" mnemonicParsing="false" onAction="#DeleteExchange" prefHeight="25.0" prefWidth="79.0" text="Delete" />
+                                          <Button mnemonicParsing="false" onAction="#saveExchange" prefHeight="25.0" prefWidth="75.0" text="Save" />
+                                          <Button fx:id="btn_cal" mnemonicParsing="false" text="Calculator" />
+                                      </items>
+                                    </ToolBar>
+                                    <TableView fx:id="table_exchange_info" layoutX="567.0" layoutY="48.0" prefHeight="486.0" prefWidth="107.0" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <Pane layoutX="14.0" layoutY="43.0" prefHeight="481.0" prefWidth="296.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <GridPane layoutX="19.0" layoutY="45.0" prefHeight="170.0" prefWidth="260.0" vgap="5.0">
+                                            <columnConstraints>
+                                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="125.0" minWidth="10.0" prefWidth="84.0" />
+                                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="176.0" minWidth="10.0" prefWidth="176.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <Label text="Item No" GridPane.rowIndex="3" />
+                                                <Label text="Invoice No" GridPane.rowIndex="2" />
+                                                <Label text="Exchange Id" GridPane.rowIndex="1" />
+                                                <Label text="Return Qty" GridPane.rowIndex="6" />
+                                                <TextField fx:id="inv_no_txt" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                <TextField fx:id="ret_itmno_txt" onAction="#searchInvoice" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                <TextField fx:id="exch_id_txt" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                <TextField fx:id="ret_qty_txt" onAction="#calcReturnCost" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                                <DatePicker fx:id="ret_date_txt" GridPane.columnIndex="1" />
+                                                <Label text="Date" />
+                                                <Label text="Description" GridPane.rowIndex="4" />
+                                                <TextField fx:id="ret_itm_txt" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                                <TextField fx:id="ret_cost_txt" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                                <Label text="Return cost" GridPane.rowIndex="7" />
+                                                <Label text="Qty" GridPane.rowIndex="5" />
+                                                <TextField fx:id="tot_qty_txt" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                             </children>
+                                          </GridPane>
+                                       </children>
+                                    </Pane>
+                                 </children></AnchorPane>
+                          </content>
+                        </Tab>
+                    </tabs>
+                  </TabPane>
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
