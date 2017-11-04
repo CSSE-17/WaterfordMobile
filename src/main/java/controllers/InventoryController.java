@@ -27,7 +27,9 @@ package controllers;
         import javafx.scene.control.cell.PropertyValueFactory;
         import javafx.scene.paint.Color;
         import models.InventoryEntity;
-        import util.FormValidate;
+       import org.slf4j.Logger;
+       import org.slf4j.LoggerFactory;
+       import util.FormValidate;
         import util.JDBC;
 
 /**
@@ -37,6 +39,7 @@ package controllers;
  */
 public class InventoryController implements Initializable {
 
+    static final Logger LOG = LoggerFactory.getLogger(LoginController.class);
     JDBC database = new JDBC();
 
     @FXML
@@ -106,21 +109,21 @@ public class InventoryController implements Initializable {
         loadReorderTable();
         generateItemID();
         tbl_invent.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
-            InventoryEntity e = (InventoryEntity) obs.getValue();
+            InventoryEntity entity= (InventoryEntity) obs.getValue();
 
-            if (e == null) {
+            if (entity== null) {
                 return;
             }
 
-            String item_code = e.getItem_code();
-            String item_name = e.getItem_name();
-            String description = e.getDescription();
-            int qty = e.getQuantity();
-            String rec_from = e.getReceivefrm();
-            String rec_date = e.getReceivedate();
-            String exp_date = e.getExpiredate();
-            Double unit_price = e.getUnit_price();
-            int min_level = e.getMin_level();
+            String item_code = entity.getItem_code();
+            String item_name = entity.getItem_name();
+            String description = entity.getDescription();
+            int qty = entity.getQuantity();
+            String rec_from = entity.getReceivefrm();
+            String rec_date = entity.getReceivedate();
+            String exp_date = entity.getExpiredate();
+            Double unit_price = entity.getUnit_price();
+            int min_level = entity.getMin_level();
 
             txt_itemcode.setText(item_code);
             txt_itemname.setText(item_name);
@@ -138,20 +141,20 @@ public class InventoryController implements Initializable {
         });
 
         tbl_reorder.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
-            InventoryEntity e = (InventoryEntity) obs.getValue();
+            InventoryEntity entity= (InventoryEntity) obs.getValue();
 
-            if (e == null) {
+            if (entity== null) {
                 return;
             }
 
-            String rec_from = e.getReceivefrm();
+            String rec_from = entity.getReceivefrm();
 
             lbl_supnamefield.setText(rec_from);
         });
 
     }
 
-    public void adddetails() {
+    public void addDetails() {
         try {
             if (!checkInventoryEmptyFields() && checkNumericFields()) {
 
@@ -167,7 +170,7 @@ public class InventoryController implements Initializable {
 
                 InventoryEntity inventory = new InventoryEntity(itemCode, itemName,description,quantity ,receiveFrm , receiveDate , expireDate ,unitPrice , + minLevel);
                 inventory.addNewInventory(inventory);
-
+                loadInventoryTable();
 
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Information Alert");
@@ -187,6 +190,7 @@ public class InventoryController implements Initializable {
             alert.setTitle("ERROR");
             alert.setHeaderText("All fields must be filled");
             alert.showAndWait();
+            LOG.info("All fields must be filled");
         }
     }
 
@@ -213,6 +217,8 @@ public class InventoryController implements Initializable {
             return inventory;
         } catch (Exception ex) {
             ex.printStackTrace();
+            LOG.info("error in Add details" +ex);
+
         }
         return inventory;
     }
@@ -241,6 +247,7 @@ public class InventoryController implements Initializable {
             return inventory;
         } catch (Exception ex) {
             ex.printStackTrace();
+            LOG.info("Error in get reorder table " + ex);
         }
         return inventory;
     }
@@ -268,6 +275,7 @@ public class InventoryController implements Initializable {
             return inventory;
         } catch (Exception ex) {
             ex.printStackTrace();
+            LOG.info("Error in get search " + ex);
         }
         return inventory;
     }
@@ -323,14 +331,14 @@ public class InventoryController implements Initializable {
                                 return;
                             }
 
-                            InventoryEntity e = (InventoryEntity) getTableRow().getItem();
+                            InventoryEntity entity = (InventoryEntity) getTableRow().getItem();
 
-                            if (e == null) {
+                            if (entity == null) {
                                 return;
                             }
 
-                            int qty = e.getQuantity();
-                            int minqty = e.getMin_level();
+                            int qty = entity.getQuantity();
+                            int minqty = entity.getMin_level();
                             setText(item);
 
                             if (qty < minqty) {
@@ -342,7 +350,8 @@ public class InventoryController implements Initializable {
                 };
             });
 
-        } catch (Exception e) {
+        } catch (Exception ex) {
+            LOG.info("Error in load inventory table " + ex);
 
         }
 
@@ -420,6 +429,8 @@ public class InventoryController implements Initializable {
             alert.setTitle("ERROR");
             alert.setHeaderText("Fields Cannot be Empty");
             alert.showAndWait();
+            LOG.info("Fields Cannot be Empty when updating");
+
 
         }
 
@@ -460,8 +471,6 @@ public class InventoryController implements Initializable {
         } else if (fv.isEmptyField(txt_recievefrom.getText(), "Receive From")) {
             return true;
         } else if (fv.isEmptyField(dtn_recievedate.getValue().toString(), "Receive Date")) {
-            return true;
-        } else if (fv.isEmptyField(dtn_expiredate.getValue().toString(), "Expire Date")) {
             return true;
         } else if (fv.isEmptyField(txt_unitprice.getText(), "Unit Price")) {
             return true;
@@ -547,11 +556,11 @@ public class InventoryController implements Initializable {
 
     public void demodata() {
 
-        txt_itemname.setText("Gift Packs");
-        txt_quantity.setText("15");
-        txt_description.setText("");
+        txt_itemname.setText("Apple 5S batery");
+        txt_quantity.setText("12");
+        txt_description.setText("64GB");
         txt_recievefrom.setText("99group pvt Ltd");
         txt_minlevel.setText("5");
-        txt_unitprice.setText("4000.00");
+        txt_unitprice.setText("2000.00");
     }
 }

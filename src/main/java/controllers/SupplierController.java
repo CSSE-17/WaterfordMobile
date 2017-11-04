@@ -22,6 +22,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import models.SupplierEntity;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import util.FormValidate;
 import util.JDBC;
 
@@ -31,6 +33,7 @@ import util.JDBC;
  * @author Waruna
  */
 public class SupplierController implements Initializable {
+    static final Logger LOG = LoggerFactory.getLogger(LoginController.class);
     JDBC db = new JDBC();
 
     @FXML
@@ -97,22 +100,23 @@ public class SupplierController implements Initializable {
         btn_delete.setVisible(false);
         generateSupplierID();
         tbl_supplier.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
-            SupplierEntity e = (SupplierEntity) obs.getValue();
 
-            if (e == null) {
+            SupplierEntity entity= (SupplierEntity) obs.getValue();
+
+            if (entity== null) {
                 return;
             }
 
-            String supid = e.getSupplierId();
-            String item_name = e.getSupplierName();
-            String description = e.getDescription();
-            String address = e.getAddress();
-            String Tpnumber = e.getTpnumber();
-            String email = e.getEmail();
-            String datejoin = e.getDateJoined();
-            String bank = e.getBank();
-            String branch = e.getBranch();
-            String accntno = e.getAccntNo();
+            String supid = entity.getSupplierId();
+            String item_name = entity.getSupplierName();
+            String description = entity.getDescription();
+            String address = entity.getAddress();
+            String Tpnumber = entity.getTpnumber();
+            String email = entity.getEmail();
+            String datejoin = entity.getDateJoined();
+            String bank = entity.getBank();
+            String branch = entity.getBranch();
+            String accntno = entity.getAccntNo();
 
             txt_supid.setText(supid);
             txt_supname.setText(item_name);
@@ -131,7 +135,7 @@ public class SupplierController implements Initializable {
         });
     }
 
-    public void addsupplier() {
+    public void addSupplier() {
         try {
             if (!checkInventoryEmptyFields() && CheckPhone() && Checkemail()) {
                 String Sup_id = txt_supid.getText();
@@ -180,6 +184,7 @@ public class SupplierController implements Initializable {
             alert.setTitle("ERROR");
             alert.setHeaderText("Fields Cannot be Empty");
             alert.showAndWait();
+            LOG.info("Fields Cannot be Empty");
 
         }
 
@@ -192,22 +197,23 @@ public class SupplierController implements Initializable {
             ResultSet rset = j.getData("SELECT * FROM supplier");
             while (rset.next()) {
                 String supid = rset.getString(1);
-                String Supname = rset.getString(2);
-                String Description = rset.getString(3);
-                String Address = rset.getString(4);
-                String Tpnumber = rset.getString(5);
-                String Email = rset.getString(6);
-                String Datejoin = rset.getString(7);
+                String supname = rset.getString(2);
+                String description = rset.getString(3);
+                String address = rset.getString(4);
+                String tpNumber = rset.getString(5);
+                String email = rset.getString(6);
+                String dateJoin = rset.getString(7);
                 String bank = rset.getString(8);
                 String branch = rset.getString(9);
                 String accnt_no = rset.getString(10);
 
-                supplier.add(new SupplierEntity(supid, Supname, Description, Address, Tpnumber, Email, Datejoin, bank, branch, accnt_no));
+                supplier.add(new SupplierEntity(supid, supname, description, address, tpNumber, email, dateJoin, bank, branch, accnt_no));
 
             }
             return supplier;
         } catch (Exception ex) {
             ex.printStackTrace();
+            LOG.info("error getAllSupplierdata" +ex);
         }
         return supplier;
     }
@@ -280,11 +286,12 @@ public class SupplierController implements Initializable {
 
             generateSupplierID();
 
-        } catch (Exception e) {
+        } catch (Exception ex) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("ERROR");
             alert.setHeaderText("Fields Cannot be Empty");
             alert.showAndWait();
+            LOG.info("error updateSupplier" +ex);
         }
 
     }
@@ -404,6 +411,7 @@ public class SupplierController implements Initializable {
             return supplier;
         } catch (Exception ex) {
             ex.printStackTrace();
+            LOG.info("error getSearchSuppierdata" +ex);
         }
         return supplier;
     }
@@ -441,11 +449,11 @@ public class SupplierController implements Initializable {
 
     public void demosupdata() {
 
-        txt_supname.setText("Grand Toys");
+        txt_supname.setText("Grand Mobiles");
         txt_supdescription.setText("");
         txt_tpnumber.setText("0112485724");
         txt_address.setText("Malatha Road, Kandana");
-        txt_email.setText("grnd@gmail.com");
+        txt_email.setText("grndM@gmail.com");
         txt_accntno.setText("021457845124");
         txt_bank.setText("Nations Trust Bank");
         txt_branch.setText("Kandana");
