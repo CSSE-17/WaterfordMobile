@@ -26,7 +26,7 @@ public class Configuration {
 
     // read database configurations. keys:(user_name, password).
     public Properties readDbConfig() {
-        Properties db_properties = readConfig("F:\\SLIIT\\3 Year\\2nd\\CSSE\\WMProj\\WaterfordMobile\\src\\main\\resources\\config\\db_config.properties");
+        Properties db_properties = readConfig("C:\\Users\\VTENNM1\\IdeaProjects\\WaterfordMobile\\src\\main\\resources\\config\\db_config.properties");
         return db_properties;
     }
 
