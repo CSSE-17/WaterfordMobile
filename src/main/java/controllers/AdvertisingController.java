@@ -163,7 +163,7 @@ public ObservableList<OfferModel> getAllOffers(){
 
       advertising adv = new advertising(offer_id, name, discount, description, date_effectivefrom,date_effectiveto);
       adv.addNewAdvertising(adv);
-      LOG.info(" New Offer added ");
+      LOG.info(" New Offer added id" + offer_id);
 
     }
     loadOfferTables();
@@ -327,6 +327,7 @@ public ObservableList<OfferModel> getAllOffers(){
               alert.setTitle("Error");
               alert.setHeaderText("Invalid email address.");
               alert.showAndWait();
+              LOG.info("Email Send  Fail ,Invalid email address" );
           }else{
 
             EmailUtil offerSend = new EmailUtil();
