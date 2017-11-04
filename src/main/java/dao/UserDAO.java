@@ -62,6 +62,6 @@ public class UserDAO {
     }
 
     public void delete() {
-        // code to remove a book
+        // code to remove a user
     }
 }

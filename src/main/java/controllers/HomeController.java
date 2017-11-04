@@ -44,7 +44,12 @@ public class HomeController {
     public void loadSupplierPanel() {
         loadCenterPanel("/views/Supplier.fxml");
     }
-
+    public void loadFinancePanel() {
+        loadCenterPanel("/views/Finance.fxml");
+    }
+    public void loadOffersPanel() {
+        loadCenterPanel("/views/Advertising.fxml");
+    }
     public void loadInventoryPanel() {
         loadCenterPanel("/views/Inventory.fxml");
     }
@@ -54,6 +59,12 @@ public class HomeController {
      */
     public void loadHumanResourcespanel() {
         loadCenterPanel("/views/HumanResources.fxml");
+    }
+    /**
+     * load Deliveries FXML into center of the home borderpane.
+     */
+    public void loadDeliveryPanel() {
+        loadCenterPanel("/views/DeliveryandDeliveryServices.fxml");
     }
 
     /**

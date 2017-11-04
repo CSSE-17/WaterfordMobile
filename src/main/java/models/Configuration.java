@@ -44,7 +44,7 @@ public class Configuration {
      * @return
      */
     public Properties readAssetsConfig() {
-        Properties assets_properties = readConfig("./src/config/assets.properties");
+        Properties assets_properties = readConfig("C:\\Users\\VTENNM1\\IdeaProjects\\WaterfordMobile\\src\\main\\resources\\config\\assets.properties");
         return assets_properties;
     }
 }

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.web.HTMLEditor?>
+
+<AnchorPane prefHeight="532.0" prefWidth="620.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AdvertisingController">
+   <children>
+      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <AnchorPane prefHeight="50.0" prefWidth="670.0" style="-fx-background-color: #3b5998;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label layoutX="14.0" layoutY="44.0" text="Advertising and Offers" textFill="WHITE" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="18.0" />
+                     </font>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Label>
+               </children>
+               <effect>
+                  <InnerShadow />
+               </effect>
+            </AnchorPane>
+         </top>
+         <center>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <TabPane layoutY="11.0" prefHeight="471.0" prefWidth="620.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="11.0">
+                    <tabs>
+                      <Tab text="Offers">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <SplitPane dividerPositions="0.25585284280936454" layoutX="62.0" layoutY="62.0" prefHeight="160.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                      <items>
+                                        <AnchorPane maxWidth="580.0" minHeight="0.0" minWidth="0.0" prefHeight="452.0" prefWidth="186.0">
+                                             <children>
+                                                <VBox fx:id="selectedoffer" layoutX="14.0" layoutY="20.0" prefHeight="418.0" prefWidth="246.0" spacing="5.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="20.0">
+                                                   <children>
+                                                      <Label text="Offer ID:" />
+                                                      <TextField fx:id="txt_offer_id" />
+                                                      <Label text="Name:">
+                                                         <VBox.margin>
+                                                            <Insets top="5.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <TextField fx:id="txt_name" />
+                                                      <Label text="Description:">
+                                                         <VBox.margin>
+                                                            <Insets top="5.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <TextField fx:id="txt_description" prefHeight="25.0" prefWidth="134.0" />
+                                                      <Label text="Discount (%):">
+                                                         <VBox.margin>
+                                                            <Insets top="5.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <TextField fx:id="txt_discount" />
+                                                      <Label text="Effective from:">
+                                                         <VBox.margin>
+                                                            <Insets top="5.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <DatePicker fx:id="datepicker_from" />
+                                                      <Label text="Effective to:">
+                                                         <VBox.margin>
+                                                            <Insets top="5.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <DatePicker fx:id="datepicker_to" />
+                                                      <Button mnemonicParsing="false" onAction="#saveoffers" prefHeight="25.0" prefWidth="76.0" text="Add" />
+                                                      <Button mnemonicParsing="false" onAction="#updateoffres" prefHeight="25.0" prefWidth="72.0" text="Update" />
+                                                      <Button mnemonicParsing="false" onAction="#deleteoffres" prefHeight="25.0" prefWidth="74.0" text="Delete" />
+                                                      <HBox prefHeight="25.0" prefWidth="170.0" spacing="10.0">
+                                                         <VBox.margin>
+                                                            <Insets top="20.0" />
+                                                         </VBox.margin>
+                                                      </HBox>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </AnchorPane>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="457.0" prefWidth="474.0">
+                                             <children>
+                                                <TableView fx:id="table_Offer" layoutX="-4.0" layoutY="60.0" prefHeight="377.0" prefWidth="466.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="-4.0" AnchorPane.rightAnchor="-5.0" AnchorPane.topAnchor="60.0">
+                                                  <columns>
+                                                    <TableColumn prefWidth="64.0" text="Offer ID" />
+                                                    <TableColumn prefWidth="66.0" text="Name" />
+                                                      <TableColumn prefWidth="76.0" text="Discount" />
+                                                      <TableColumn prefWidth="79.0" text="Description" />
+                                                      <TableColumn prefWidth="92.0" text="Effective From" />
+                                                      <TableColumn prefWidth="75.0" text="Effective To" />
+                                                  </columns>
+                                                </TableView>
+                                                <Label layoutX="39.0" layoutY="14.0" prefHeight="17.0" prefWidth="54.0" text="Offer ID :" visible="false" />
+                                                <TextField fx:id="txt_offer_filter" layoutX="105.0" layoutY="10.0" onAction="#loadOfferTables" visible="false" />
+                                             </children>
+                                          </AnchorPane>
+                                      </items>
+                                    </SplitPane>
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                      <Tab text="Advertising">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <HTMLEditor htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" layoutX="5.0" layoutY="60.0" prefHeight="200.0" prefWidth="506.0" AnchorPane.bottomAnchor="-5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="60.0" />
+                                    <Button fx:id="saveoffers" layoutX="525.0" layoutY="31.0" mnemonicParsing="false" text="Send" />
+                                    <Label layoutX="14.0" layoutY="18.0" text="To" />
+                                    <Label layoutX="199.0" layoutY="18.0" text="Send To All" />
+                                    <TextField fx:id="offers_Email" layoutX="35.0" layoutY="14.0" />
+                                    <ComboBox layoutX="265.0" layoutY="14.0" prefWidth="150.0" />
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                    </tabs>
+                  </TabPane>
+               </children></AnchorPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
