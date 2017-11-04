@@ -169,7 +169,7 @@ public class LoginController {
             // close current window
             closeLogin();
         } catch (Exception e) {
-            e.printStackTrace();
+            LOG.error("Error setting up javaFX stage. " + e);
         }
     }
 
